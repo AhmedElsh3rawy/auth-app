@@ -10,6 +10,7 @@ fetchData();
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 const loginButton = document.getElementById("login-btn");
+const redMsg = document.getElementById("red-msg");
 const body = document.body;
 
 loginButton.addEventListener("click", async function (event) {
@@ -40,11 +41,12 @@ loginButton.addEventListener("click", async function (event) {
 
       let h1Element = document.createElement("h1");
 
-      h1Element.textContent = "Welcome";
+      h1Element.textContent = `Welcome ${email.split("@")[0]}`;
 
       body.appendChild(h1Element);
     } else {
-      alert("Invalid email or password");
+      // alert("Invalid email or password");
+      redMsg.style.display = "inline";
     }
   } catch (e) {
     console.error(`Error: ${e}`);

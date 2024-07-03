@@ -54,3 +54,9 @@ input {
 #login-btn:hover {
   color: #fff;
 }
+
+p {
+  color: red;
+  display: none;
+  font-style: normal;
+}
