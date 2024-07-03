@@ -3,9 +3,10 @@ import cors from "cors";
 
 const app: Express = express();
 
-const PORT = process.env.PORT || 8080;
+const PORT = 8080;
 
 app.use(cors({ origin: "*" }));
+app.use(express.json());
 
 app.get("/", (req: Request, res: Response) => {
   res.status(200).send("Hello, World!");
