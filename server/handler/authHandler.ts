@@ -11,4 +11,14 @@ const users = [
   },
 ];
 
-export const getUser = async (req: Request, res: Response) => { };
+export const login = async (req: Request, res: Response) => {
+  const { email, password } = req.body;
+
+  const user = users.find((u) => u.email === email);
+
+  if (!user || user.password !== password) {
+    return res.send("Invalid email or password");
+  }
+
+  res.send("OK");
+};
