@@ -1,1 +1,1 @@
-## just a simple loging app for learning purposes
+## just a simple login app for learning purposes
