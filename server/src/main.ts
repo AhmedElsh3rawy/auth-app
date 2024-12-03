@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
 import morgan from "morgan";
+import cookieParser from "cookie-parser";
 import { errorHandler, notFound } from "./middleware/errorHandler";
 import authRouter from "./router/auth";
 
@@ -9,6 +10,8 @@ const PORT = process.env.PORT || 8080;
 
 app.use(express.json());
 app.use(morgan("dev"));
+app.use(cookieParser());
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Hello, World!");
