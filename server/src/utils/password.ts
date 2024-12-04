@@ -1,6 +1,7 @@
 import bcrypt from "bcrypt";
+import { dotenv } from "./dotenv";
 
-const pepper = process.env.BCRYPT_PASSWORD_PEPPER;
+const pepper = dotenv.BCRYPT_PASSWORD_PEPPER;
 
 export const hashPassword = (password: string) => {
   return bcrypt.hashSync(`${pepper}${password}`, 10);

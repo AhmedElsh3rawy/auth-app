@@ -4,16 +4,17 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import { errorHandler, notFound } from "./middleware/errorHandler";
 import authRouter from "./router/auth";
+import { dotenv } from "./utils/dotenv";
 
 const app = express();
 
-const PORT = process.env.PORT || 8080;
+const PORT = dotenv.PORT;
 
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({ origin: process.env.CORS_ORIGIN }));
+app.use(cors({ origin: dotenv.CORS_ORIGIN }));
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Hello, World!");
